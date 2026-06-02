@@ -1,29 +1,63 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap");
 
 :root {
-  --sand: #E8E4DC;
-  --sand-2: #D4CCBC;
-  --ink: #1A1814;
-  --ink-2: #2E2B25;
-  --accent: #C4783A;
-  --accent-pale: rgba(196, 120, 58, 0.12);
+  --bg: #E8E4DC;
+  --bg-soft: #D4CCBC;
+  --text: #1A1814;
+  --text-soft: #2E2B25;
   --muted: #7A7469;
   --line: rgba(26, 24, 20, 0.14);
   --line-med: rgba(26, 24, 20, 0.26);
+
+  --surface: rgba(26, 24, 20, 0.035);
+  --surface-strong: #1A1814;
+  --surface-strong-text: #E8E4DC;
+
+  --accent: #C4783A;
+  --accent-soft: rgba(196, 120, 58, 0.12);
+
+  --nav-bg: #1A1814;
+  --nav-text: #E8E4DC;
+  --nav-muted: rgba(232, 228, 220, 0.48);
+
+  --footer-bg: #1A1814;
+  --footer-text: #E8E4DC;
+  --footer-muted: rgba(232, 228, 220, 0.42);
+
+  --button-bg: #1A1814;
+  --button-text: #E8E4DC;
+
   --font-serif: "DM Serif Display", Georgia, serif;
   --font-mono: "DM Mono", "Courier New", monospace;
   --font-body: "Outfit", "Helvetica Neue", Arial, sans-serif;
 }
 
 [data-theme="dark"] {
-  --sand: #111008;
-  --sand-2: #1C1A12;
-  --ink: #E8E4DC;
-  --ink-2: #D4CCBC;
-  --muted: #A09890;
-  --line: rgba(232, 228, 220, 0.12);
-  --line-med: rgba(232, 228, 220, 0.24);
-  --accent-pale: rgba(196, 120, 58, 0.15);
+  --bg: #0F0E0B;
+  --bg-soft: #171510;
+  --text: #EDE8DF;
+  --text-soft: #D5CEC1;
+  --muted: #A49B8D;
+  --line: rgba(237, 232, 223, 0.12);
+  --line-med: rgba(237, 232, 223, 0.24);
+
+  --surface: rgba(237, 232, 223, 0.045);
+  --surface-strong: #171510;
+  --surface-strong-text: #EDE8DF;
+
+  --accent: #D28A4A;
+  --accent-soft: rgba(210, 138, 74, 0.16);
+
+  --nav-bg: #0A0907;
+  --nav-text: #EDE8DF;
+  --nav-muted: rgba(237, 232, 223, 0.50);
+
+  --footer-bg: #0A0907;
+  --footer-text: #EDE8DF;
+  --footer-muted: rgba(237, 232, 223, 0.42);
+
+  --button-bg: #EDE8DF;
+  --button-text: #0F0E0B;
 }
 
 * {
@@ -37,8 +71,8 @@ html {
 }
 
 body {
-  background: var(--sand);
-  color: var(--ink);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.6;
@@ -57,8 +91,8 @@ a {
 .page {
   width: 100%;
   min-height: 100vh;
-  background: var(--sand);
-  color: var(--ink);
+  background: var(--bg);
+  color: var(--text);
 }
 
 /* ── NAV ── */
@@ -66,8 +100,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: var(--ink);
-  border-bottom: 1px solid rgba(232, 228, 220, 0.1);
+  background: var(--nav-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .navInner {
@@ -85,7 +119,7 @@ a {
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.2em;
-  color: var(--sand);
+  color: var(--nav-text);
 }
 
 .nav nav {
@@ -100,13 +134,13 @@ a {
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(232, 228, 220, 0.45);
+  color: var(--nav-muted);
   transition: color 180ms ease;
 }
 
 .nav nav a:hover,
 .nav nav a.active {
-  color: var(--sand);
+  color: var(--nav-text);
 }
 
 .nav nav a.active {
@@ -118,8 +152,8 @@ a {
   width: 36px;
   height: 20px;
   border-radius: 999px;
-  background: var(--ink-2);
-  border: 1px solid rgba(232, 228, 220, 0.2);
+  background: transparent;
+  border: 1px solid var(--nav-muted);
   padding: 3px;
   cursor: pointer;
   display: inline-flex;
@@ -131,7 +165,7 @@ a {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: var(--sand);
+  background: var(--nav-text);
   transition: transform 200ms ease;
 }
 
@@ -174,6 +208,10 @@ a {
   z-index: 0;
 }
 
+[data-theme="dark"] .gridBg {
+  opacity: 0.55;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -202,7 +240,7 @@ h1 {
   font-size: clamp(52px, 10vw, 96px);
   line-height: 0.95;
   letter-spacing: -0.01em;
-  color: var(--ink);
+  color: var(--text);
 }
 
 h1 .italic {
@@ -220,7 +258,7 @@ h2 {
   font-size: clamp(22px, 4vw, 36px);
   font-weight: 400;
   line-height: 1.1;
-  color: var(--ink);
+  color: var(--text);
 }
 
 h3 {
@@ -228,7 +266,7 @@ h3 {
   font-size: clamp(16px, 2.5vw, 22px);
   font-weight: 400;
   line-height: 1.15;
-  color: var(--ink);
+  color: var(--text);
 }
 
 p {
@@ -283,13 +321,13 @@ p {
   align-items: center;
   gap: 8px;
   padding: 10px 22px;
-  background: var(--ink);
-  color: var(--sand);
+  background: var(--button-bg);
+  color: var(--button-text);
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--button-bg);
   cursor: pointer;
   transition: opacity 180ms ease;
 }
@@ -302,7 +340,7 @@ p {
   gap: 8px;
   padding: 10px 22px;
   background: transparent;
-  color: var(--ink);
+  color: var(--text);
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.18em;
@@ -313,15 +351,15 @@ p {
 }
 
 .btnGhost:hover {
-  border-color: var(--ink);
-  background: var(--accent-pale);
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 /* ── DIVIDER BAR ── */
 .dividerBar {
-  background: var(--ink);
-  border-top: 1px solid rgba(232, 228, 220, 0.08);
-  border-bottom: 1px solid rgba(232, 228, 220, 0.08);
+  background: var(--nav-bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .dividerBarInner {
@@ -338,13 +376,13 @@ p {
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--sand);
+  color: var(--nav-text);
 }
 
 .dividerBarRule {
   flex: 1;
   height: 1px;
-  background: rgba(232, 228, 220, 0.14);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .dividerBarCount {
@@ -352,7 +390,7 @@ p {
   font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(232, 228, 220, 0.38);
+  color: var(--nav-muted);
 }
 
 /* ── SECTION ── */
@@ -402,7 +440,7 @@ p {
 }
 
 .workItem:hover {
-  background: var(--accent-pale);
+  background: var(--accent-soft);
   padding-inline: 12px;
 }
 
@@ -484,7 +522,7 @@ p {
   transition: color 180ms;
 }
 
-.backLink:hover { color: var(--ink); }
+.backLink:hover { color: var(--text); }
 
 /* ── DETAIL PAGE ── */
 .detailPage {
@@ -555,7 +593,7 @@ p {
   font-family: var(--font-serif);
   font-size: clamp(17px, 2.5vw, 22px);
   font-weight: 400;
-  color: var(--ink);
+  color: var(--text);
   margin-bottom: 4px;
 }
 
@@ -622,20 +660,16 @@ p {
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--text);
   padding: 6px 12px;
-  background: rgba(26, 24, 20, 0.06);
+  background: var(--surface);
   border: 1px solid var(--line);
 }
 
-[data-theme="dark"] .pill {
-  background: rgba(232, 228, 220, 0.06);
-}
-
 .pillCap {
-  background: var(--accent-pale);
+  background: var(--accent-soft);
   color: var(--accent);
-  border-color: rgba(196, 120, 58, 0.22);
+  border-color: rgba(196, 120, 58, 0.28);
 }
 
 /* ── CREDENTIALS ── */
@@ -656,7 +690,7 @@ p {
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 400;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .credentialItem .credMeta {
@@ -694,19 +728,15 @@ p {
   justify-content: space-between;
   padding: 16px 20px;
   border: 1px solid var(--line-med);
-  background: rgba(232, 228, 220, 0.4);
+  background: var(--surface);
   cursor: pointer;
   transition: background 160ms ease, border-color 160ms ease;
   text-decoration: none;
 }
 
-[data-theme="dark"] .contactLink {
-  background: rgba(26, 24, 20, 0.4);
-}
-
 .contactLink:hover {
-  background: var(--accent-pale);
-  border-color: rgba(196, 120, 58, 0.3);
+  background: var(--accent-soft);
+  border-color: var(--accent);
 }
 
 .contactLinkLabel {
@@ -721,7 +751,7 @@ p {
 .contactLinkValue {
   font-size: 14px;
   font-weight: 400;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .contactLinkArrow {
@@ -732,8 +762,8 @@ p {
 
 /* ── FOOTER ── */
 .siteFooter {
-  background: var(--ink);
-  border-top: 1px solid rgba(232, 228, 220, 0.1);
+  background: var(--footer-bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footerInner {
@@ -748,7 +778,7 @@ p {
 .footerMark {
   font-family: var(--font-serif);
   font-size: 15px;
-  color: rgba(232, 228, 220, 0.6);
+  color: var(--footer-text);
   letter-spacing: 0.06em;
 }
 
@@ -757,7 +787,7 @@ p {
   font-size: 9px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(232, 228, 220, 0.3);
+  color: var(--footer-muted);
 }
 
 /* ── NOT FOUND ── */
