@@ -76,6 +76,8 @@ li {
 
 .nav,
 .hero,
+.pageHero,
+.detailPage,
 .sectionInner {
   width: min(1120px, calc(100% - 40px));
   margin-inline: auto;
@@ -130,9 +132,26 @@ li {
 }
 
 .nav nav a:hover,
+.nav nav a.active,
 .footerInner a:hover {
   color: #888888;
   opacity: 0.72;
+}
+
+.pageContent {
+  animation: pageFade 220ms ease both;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero {
@@ -141,6 +160,23 @@ li {
   flex-direction: column;
   justify-content: center;
   padding-block: clamp(96px, 12vw, 180px);
+}
+
+.pageHero,
+.detailPage {
+  padding-block: clamp(96px, 12vw, 180px);
+}
+
+.pageHero h1,
+.detailPage h1 {
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+  line-height: 1.05;
+}
+
+.pageIntro {
+  max-width: 680px;
+  margin-top: clamp(28px, 4vw, 56px);
+  color: var(--muted);
 }
 
 .eyebrow {
@@ -307,6 +343,35 @@ p {
   transform: translateY(-2px);
 }
 
+.backLink {
+  display: inline-flex;
+  margin-bottom: clamp(36px, 5vw, 72px);
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.detailTags {
+  margin-top: clamp(28px, 4vw, 56px);
+  justify-content: flex-start;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(48px, 7vw, 110px);
+  margin-top: clamp(72px, 9vw, 140px);
+  padding-top: clamp(48px, 6vw, 96px);
+  border-top: 1px solid var(--line);
+}
+
+.detailGrid section {
+  display: grid;
+  gap: 18px;
+}
+
 .workNumber,
 .timelineMeta,
 .credentialItem span {
@@ -414,6 +479,20 @@ p {
   margin: 0;
 }
 
+.contactList {
+  display: grid;
+  gap: 24px;
+}
+
+.contactList a {
+  width: fit-content;
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--text);
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+}
+
 .simpleFooter {
   width: 100%;
   min-height: auto;
@@ -516,6 +595,10 @@ p {
     gap: 18px;
   }
 
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+
   .tagList,
   .heroLinks {
     justify-content: flex-start;
@@ -527,10 +610,22 @@ p {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .pageContent {
+    animation: none;
+  }
+}
+
 @media (max-width: 720px) {
 
   .nav,
   .hero,
+  .pageHero,
+  .detailPage,
   .sectionInner {
     width: min(100% - 28px, 1120px);
   }
