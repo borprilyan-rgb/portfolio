@@ -5,8 +5,8 @@ const profile = {
   title: "Quantity Surveyor / Cost Estimator",
   location: "Jakarta, Indonesia",
   email: "your.email@example.com",
-  phone: "+62 xxx xxxx xxxx",
-  linkedin: "https://linkedin.com/in/your-profile",
+  phone: "+62 896 6980 1069",
+  linkedin: "https://linkedin.com/in/borissidabutar",
 };
 
 const skills = [
