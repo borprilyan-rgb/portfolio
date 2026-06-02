@@ -728,7 +728,7 @@ p {
   justify-content: space-between;
   padding: 16px 20px;
   border: 1px solid var(--line-med);
-  background: var(--surface);
+  background: var(--bg-soft);
   cursor: pointer;
   transition: background 160ms ease, border-color 160ms ease;
   text-decoration: none;

@@ -590,7 +590,7 @@ function App() {
       <header className="nav">
         <div className="navInner">
           <Link to="/" className="brand" aria-label="Home">
-            BP
+            Boris
           </Link>
           <nav aria-label="Primary navigation">
             <NavLink to="/work">Work</NavLink>
