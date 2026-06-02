@@ -3,7 +3,8 @@ import { Link, NavLink, Route, Routes, useLocation, useParams } from "react-rout
 import "./App.css";
 
 const profile = {
-  name: "Boris Prilyan Sidabutar",
+  name: "Boris Sidabutar",
+  fullName: "Boris Prilyan Sidabutar",
   title: "Quantity Surveyor Specialist CSA",
   location: "Jakarta, Indonesia",
   email: "borisprilyan@gmail.com",
@@ -86,7 +87,7 @@ const experience = [
   {
     company: "Agung Sedayu",
     role: "Quantity Surveyor Specialist CSA",
-    period: "October 2025 - Present",
+    period: "Oct 2025 – Present",
     location: "Jakarta, Indonesia",
     bullets: [
       "Prepared CSA quantity take-off and BOQ structures for property development projects.",
@@ -95,9 +96,9 @@ const experience = [
     ],
   },
   {
-    company: "BREIG Property (Project-Based)",
+    company: "BREIG Property",
     role: "Quantity Surveyor",
-    period: "January 2025 - October 2025",
+    period: "Jan 2025 – Oct 2025",
     location: "Bali, Indonesia",
     bullets: [
       "Coordinated QS, Finance, BIM, and Project teams across project-based cost workflows.",
@@ -107,7 +108,7 @@ const experience = [
   {
     company: "Sinarmas Land",
     role: "Quantity Surveyor Coordinator",
-    period: "November 2021 - January 2025",
+    period: "Nov 2021 – Jan 2025",
     location: "Jakarta, Indonesia",
     bullets: [
       "Validated budgets, Bills of Materials, procurement forecasts, and cost variance records.",
@@ -118,7 +119,7 @@ const experience = [
   {
     company: "Agung Podomoro Land",
     role: "Quantity Surveyor Officer",
-    period: "March 2021 - November 2021",
+    period: "Mar 2021 – Nov 2021",
     location: "Jakarta, Indonesia",
     bullets: [
       "Reviewed tender documents, contracts, budgets, and Bills of Quantities.",
@@ -128,7 +129,7 @@ const experience = [
   {
     company: "Owens Corning Indonesia",
     role: "Estimator",
-    period: "January 2019 - March 2021",
+    period: "Jan 2019 – Mar 2021",
     location: "Jakarta, Indonesia",
     bullets: [
       "Assisted measurement and take-offs for tender BOQ preparation.",
@@ -161,61 +162,57 @@ const education = [
   {
     title: "Bachelor of Architecture",
     meta: "Universitas Indonesia",
-    period: "2014 - 2018",
+    period: "2018",
   },
 ];
 
 const certifications = [
-  {
-    title: "Cubicost Certificate",
-    meta: "Glodon Indonesia",
-    period: "2026",
-  },
-  {
-    title: "Python for Data Science",
-    meta: "Udemy",
-    period: "2025",
-  },
-  {
-    title: "Lean Six Sigma",
-    meta: "Universitas Indonesia",
-    period: "2021",
-  },
+  { title: "Cubicost Certificate", meta: "Glodon Indonesia", period: "2026" },
+  { title: "Python for Data Science", meta: "Udemy", period: "2025" },
+  { title: "Lean Six Sigma", meta: "Universitas Indonesia", period: "2021" },
 ];
+
+/* ── UTILS ── */
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
   }, [pathname]);
-
   return null;
 }
 
-function PageHeader({ label, title, children }) {
+function GridBg() {
+  return <div className="gridBg" aria-hidden="true" />;
+}
+
+function Eyebrow({ children }) {
+  return <p className="eyebrow">{children}</p>;
+}
+
+function DividerBar({ title, count }) {
   return (
-    <section className="pageHero">
-      <p className="eyebrow">{label}</p>
-      <h1>{title}</h1>
-      {children}
-    </section>
+    <div className="dividerBar">
+      <div className="dividerBarInner">
+        <span className="dividerBarTitle">{title}</span>
+        <div className="dividerBarRule" />
+        {count && <span className="dividerBarCount">{count}</span>}
+      </div>
+    </div>
   );
 }
 
-function Section({ label, title, children }) {
+function SectionHeading({ label, title }) {
   return (
-    <section className="section">
-      <div className="sectionInner">
-        <div className="sectionHeading">
-          <p className="eyebrow">{label}</p>
-          <h2>{title}</h2>
-        </div>
-        {children}
-      </div>
-    </section>
+    <div className="sectionHeading">
+      <Eyebrow>{label}</Eyebrow>
+      <h2>{title}</h2>
+      <div className="sectionHeadingRule" />
+    </div>
   );
 }
+
+/* ── WORK ROWS ── */
 
 function WorkRows({ items }) {
   return (
@@ -238,56 +235,78 @@ function WorkRows({ items }) {
   );
 }
 
+/* ── HOME ── */
+
 function HomePage() {
   return (
     <main className="pageContent">
+      {/* Hero */}
       <section className="hero">
-        <p className="eyebrow">Quantity Surveyor Portfolio</p>
-        <h1>
-          <span>Boris</span>
-          <span>Prilyan</span>
-          <span>Sidabutar</span>
-        </h1>
-        <div className="heroIntro">
-          <p className="heroTitle">{profile.title}</p>
-          <p>
-            Civil, Structural, and Architectural quantity take-off, BOQ
-            preparation, feasibility cost estimation, and cost-basis
-            reconciliation for property development projects.
-          </p>
-        </div>
-        <div className="heroMeta">
-          <span>{profile.location}</span>
-          <span>QS / BOQ / Cost Estimation / Feasibility</span>
-        </div>
-        <div className="heroLinks">
-          <Link to="/work">View Work</Link>
-          <Link to="/contact">Contact</Link>
+        <GridBg />
+        <div className="heroInner">
+          <Eyebrow>Quantity Surveyor Portfolio · Jakarta</Eyebrow>
+          <h1>
+            <span>Boris</span>
+            <span className="italic">Sidabutar</span>
+          </h1>
+          <div className="heroRule">
+            <p className="heroDesc">
+              Civil, Structural, and Architectural quantity take-off, BOQ
+              preparation, feasibility cost estimation, and cost-basis
+              reconciliation for property development projects.
+            </p>
+            <div className="heroMetaCol">
+              <span>{profile.title}</span>
+              <span>Agung Sedayu · 2025</span>
+              <span>{profile.location}</span>
+            </div>
+          </div>
+          <div className="ctaRow">
+            <Link className="btnFill" to="/work">View Work →</Link>
+            <Link className="btnGhost" to="/contact">Contact</Link>
+          </div>
         </div>
       </section>
 
-      <Section label="Selected Work" title="Project-focused QS workflows">
-        <WorkRows items={works.slice(0, 3)} />
-      </Section>
+      {/* Selected work preview */}
+      <DividerBar title="Selected Work" count={`0${works.length} Projects`} />
+      <section className="section">
+        <div className="sectionInner">
+          <SectionHeading label="Index" title="Project-focused QS workflows" />
+          <WorkRows items={works.slice(0, 3)} />
+        </div>
+      </section>
     </main>
   );
 }
+
+/* ── WORK LIST PAGE ── */
 
 function WorkPage() {
   return (
     <main className="pageContent">
-      <PageHeader label="Selected Work" title="Work">
-        <p className="pageIntro">
-          A focused index of QS workflows for feasibility estimation, BOQ/RAB
-          structure, cost-basis reconciliation, and design-change review.
-        </p>
-      </PageHeader>
-      <Section label="Index" title="Selected workflows">
-        <WorkRows items={works} />
-      </Section>
+      <section className="pageHero">
+        <GridBg />
+        <div className="pageHeroInner">
+          <Eyebrow>Selected Work</Eyebrow>
+          <h1>Work</h1>
+          <p className="pageIntro">
+            A focused index of QS workflows for feasibility estimation, BOQ/RAB
+            structure, cost-basis reconciliation, and design-change review.
+          </p>
+        </div>
+      </section>
+      <section className="section">
+        <div className="sectionInner">
+          <SectionHeading label="Index" title="Selected workflows" />
+          <WorkRows items={works} />
+        </div>
+      </section>
     </main>
   );
 }
+
+/* ── WORK DETAIL ── */
 
 function WorkDetailPage() {
   const { slug } = useParams();
@@ -298,8 +317,8 @@ function WorkDetailPage() {
   return (
     <main className="pageContent">
       <article className="detailPage">
-        <Link className="backLink" to="/work">Back to Work</Link>
-        <p className="eyebrow">{work.number}</p>
+        <Link className="backLink" to="/work">← Back to Work</Link>
+        <Eyebrow>{work.number}</Eyebrow>
         <h1>{work.title}</h1>
         <p className="pageIntro">{work.description}</p>
         <div className="tagList detailTags">
@@ -310,23 +329,45 @@ function WorkDetailPage() {
 
         <div className="detailGrid">
           <section>
-            <p className="eyebrow">Overview</p>
+            <Eyebrow>Overview</Eyebrow>
             <p>{work.description}</p>
           </section>
           <section>
-            <p className="eyebrow">Scope</p>
-            <ul>
+            <Eyebrow>Scope</Eyebrow>
+            <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: "8px" }}>
               {work.scope.map((item) => (
-                <li key={item}>{item}</li>
+                <li
+                  key={item}
+                  style={{
+                    fontSize: "12px",
+                    color: "var(--muted)",
+                    fontWeight: 300,
+                    lineHeight: 1.6,
+                    paddingLeft: "16px",
+                    position: "relative",
+                  }}
+                >
+                  <span
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      color: "var(--accent)",
+                      fontSize: "10px",
+                    }}
+                  >
+                    —
+                  </span>
+                  {item}
+                </li>
               ))}
             </ul>
           </section>
           <section>
-            <p className="eyebrow">Method</p>
+            <Eyebrow>Method</Eyebrow>
             <p>{work.method}</p>
           </section>
           <section>
-            <p className="eyebrow">Output / Value</p>
+            <Eyebrow>Output / Value</Eyebrow>
             <p>{work.output}</p>
           </section>
         </div>
@@ -335,148 +376,208 @@ function WorkDetailPage() {
   );
 }
 
+/* ── EXPERIENCE ── */
+
 function ExperiencePage() {
   return (
     <main className="pageContent">
-      <PageHeader label="Experience" title="Professional background">
-        <p className="pageIntro">
-          Quantity surveying, cost estimation, BOQ review, procurement
-          coordination, and design-change cost analysis across property
-          development workflows.
-        </p>
-      </PageHeader>
-      <Section label="Timeline" title="Experience">
-        <div className="timeline">
-          {experience.map((job) => (
-            <article className="timelineItem" key={`${job.company}-${job.period}`}>
-              <div className="timelineMeta">
-                <span>{job.period}</span>
-                <span>{job.location}</span>
-              </div>
-              <div className="timelineBody">
-                <h3>{job.company}</h3>
-                <p>{job.role}</p>
-                <ul>
-                  {job.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          ))}
+      <section className="pageHero">
+        <GridBg />
+        <div className="pageHeroInner">
+          <Eyebrow>Experience</Eyebrow>
+          <h1>Professional Background</h1>
+          <p className="pageIntro">
+            Quantity surveying, cost estimation, BOQ review, procurement
+            coordination, and design-change cost analysis across property
+            development workflows.
+          </p>
         </div>
-      </Section>
-    </main>
-  );
-}
-
-function ToolsPage() {
-  return (
-    <main className="pageContent">
-      <PageHeader label="Capability / Tools" title="Tools">
-        <p className="pageIntro">
-          A compact view of QS capabilities, software tools, education, and
-          certification support.
-        </p>
-      </PageHeader>
-      <Section label="Capability / Tools" title="Built for cost clarity">
-        <div className="capabilityGrid">
-          <div>
-            <h3>Capabilities</h3>
-            <div className="capabilityList">
-              {capabilities.map((capability) => (
-                <span key={capability}>{capability}</span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3>Tools</h3>
-            <div className="tagCloud">
-              {tools.map((tool) => (
-                <span key={tool}>{tool}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Section>
-      <Section label="Education / Certification" title="Supporting credentials">
-        <div className="credentialList">
-          {[...education, ...certifications].map((item) => (
-            <article className="credentialItem" key={`${item.title}-${item.period}`}>
-              <h3>{item.title}</h3>
-              <p>{item.meta}</p>
-              <span>{item.period}</span>
-            </article>
-          ))}
-        </div>
-      </Section>
-    </main>
-  );
-}
-
-function ContactPage() {
-  return (
-    <main className="pageContent">
-      <PageHeader label="Contact" title="Contact">
-        <p className="pageIntro">
-          Available for QS, BOQ, cost estimation, feasibility, and CSA
-          cost-basis coordination conversations.
-        </p>
-      </PageHeader>
+      </section>
       <section className="section">
-        <div className="sectionInner contactList">
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
-          <a href={`https://wa.me/${profile.phone.replace(/\D/g, "")}`} target="_blank" rel="noreferrer">
-            WhatsApp: {profile.phone}
-          </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-          <p>{profile.location}</p>
+        <div className="sectionInner">
+          <SectionHeading label="Timeline" title="Experience" />
+          <div className="timeline">
+            {experience.map((job) => (
+              <article
+                className="timelineItem"
+                key={`${job.company}-${job.period}`}
+              >
+                <div className="timelineMeta">
+                  <span className="period">{job.period}</span>
+                  <span className="location">{job.location}</span>
+                </div>
+                <div className="timelineBody">
+                  <div className="company">{job.company}</div>
+                  <p className="role">{job.role}</p>
+                  <ul>
+                    {job.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </main>
   );
 }
 
-function NotFoundPage() {
+/* ── TOOLS ── */
+
+function ToolsPage() {
   return (
     <main className="pageContent">
-      <PageHeader label="404" title="Page not found">
-        <p className="pageIntro">
-          The page you are looking for does not exist.
-        </p>
-        <div className="heroLinks">
-          <Link to="/">Return Home</Link>
-          <Link to="/work">View Work</Link>
+      <section className="pageHero">
+        <GridBg />
+        <div className="pageHeroInner">
+          <Eyebrow>Capability / Tools</Eyebrow>
+          <h1>Tools</h1>
+          <p className="pageIntro">
+            A compact view of QS capabilities, software tools, education, and
+            certification support.
+          </p>
         </div>
-      </PageHeader>
+      </section>
+
+      <section className="section">
+        <div className="sectionInner">
+          <SectionHeading label="Capability" title="Built for cost clarity" />
+          <div className="capabilityGrid">
+            <div>
+              <p className="capabilityColTitle">Capabilities</p>
+              <div className="pillCloud">
+                {capabilities.map((cap) => (
+                  <span className="pill pillCap" key={cap}>{cap}</span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className="capabilityColTitle">Software</p>
+              <div className="pillCloud">
+                {tools.map((tool) => (
+                  <span className="pill" key={tool}>{tool}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="sectionInner">
+          <SectionHeading label="Credentials" title="Education & Certifications" />
+          <div className="credentialList">
+            {[...education, ...certifications].map((item) => (
+              <article
+                className="credentialItem"
+                key={`${item.title}-${item.period}`}
+              >
+                <h3>{item.title}</h3>
+                <span className="credMeta">{item.meta}</span>
+                <span className="credYear">{item.period}</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
 
+/* ── CONTACT ── */
+
+function ContactPage() {
+  return (
+    <main className="pageContent">
+      <section className="contactHero pageHero">
+        <GridBg />
+        <div className="pageHeroInner">
+          <Eyebrow>Open for collaboration</Eyebrow>
+          <h1>Boris Sidabutar</h1>
+          <p className="pageIntro" style={{ marginTop: "8px" }}>
+            {profile.title} · {profile.location}
+          </p>
+          <div className="contactLinks">
+            <a
+              className="contactLink"
+              href={`mailto:${profile.email}`}
+            >
+              <div>
+                <p className="contactLinkLabel">Email</p>
+                <p className="contactLinkValue">{profile.email}</p>
+              </div>
+              <span className="contactLinkArrow">→</span>
+            </a>
+            <a
+              className="contactLink"
+              href={`https://wa.me/${profile.phone.replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div>
+                <p className="contactLinkLabel">WhatsApp</p>
+                <p className="contactLinkValue">{profile.phone}</p>
+              </div>
+              <span className="contactLinkArrow">→</span>
+            </a>
+            <a
+              className="contactLink"
+              href={profile.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div>
+                <p className="contactLinkLabel">LinkedIn</p>
+                <p className="contactLinkValue">linkedin.com/in/borissidabutar</p>
+              </div>
+              <span className="contactLinkArrow">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+/* ── 404 ── */
+
+function NotFoundPage() {
+  return (
+    <main className="pageContent">
+      <section className="pageHero">
+        <GridBg />
+        <div className="pageHeroInner">
+          <Eyebrow>404</Eyebrow>
+          <h1>Page not found</h1>
+          <p className="pageIntro">The page you are looking for does not exist.</p>
+          <div className="notFoundLinks">
+            <Link className="btnFill" to="/">Return Home</Link>
+            <Link className="btnGhost" to="/work">View Work</Link>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+/* ── FOOTER ── */
+
 function SiteFooter() {
   return (
-    <footer className="simpleFooter">
+    <footer className="siteFooter">
       <div className="footerInner">
-        <div className="footerMark">BP</div>
-        <h2>{profile.name}</h2>
-        <p>{profile.title} / {profile.location}</p>
-        <div className="footerContact">
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
-          <a href={`https://wa.me/${profile.phone.replace(/\D/g, "")}`} target="_blank" rel="noreferrer">
-            WhatsApp: {profile.phone}
-          </a>
-        </div>
-        <nav aria-label="Footer navigation">
-          <Link to="/work">Work</Link>
-          <Link to="/experience">Experience</Link>
-          <Link to="/tools">Tools</Link>
-          <Link to="/">Top</Link>
-        </nav>
-        <small>Copyright 2026 Boris Prilyan Sidabutar. All rights reserved.</small>
+        <span className="footerMark">Boris Sidabutar</span>
+        <span className="footerCopyright">
+          Copyright 2026 · All rights reserved
+        </span>
       </div>
     </footer>
   );
 }
+
+/* ── APP ROOT ── */
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -485,25 +586,28 @@ function App() {
   return (
     <div className="page" data-theme={theme}>
       <ScrollToTop />
+
       <header className="nav">
-        <Link to="/" className="brand" aria-label="Home">
-          BP
-        </Link>
-        <nav aria-label="Primary navigation">
-          <NavLink to="/work">Work</NavLink>
-          <NavLink to="/experience">Experience</NavLink>
-          <NavLink to="/tools">Tools</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-        </nav>
-        <button
-          className="themeToggle"
-          type="button"
-          aria-label="Toggle color theme"
-          aria-pressed={isDark}
-          onClick={() => setTheme(isDark ? "light" : "dark")}
-        >
-          <span />
-        </button>
+        <div className="navInner">
+          <Link to="/" className="brand" aria-label="Home">
+            BP
+          </Link>
+          <nav aria-label="Primary navigation">
+            <NavLink to="/work">Work</NavLink>
+            <NavLink to="/experience">Experience</NavLink>
+            <NavLink to="/tools">Tools</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
+          </nav>
+          <button
+            className="themeToggle"
+            type="button"
+            aria-label="Toggle color theme"
+            aria-pressed={isDark}
+            onClick={() => setTheme(isDark ? "light" : "dark")}
+          >
+            <span />
+          </button>
+        </div>
       </header>
 
       <Routes>
