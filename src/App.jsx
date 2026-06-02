@@ -1,7 +1,7 @@
 import "./App.css";
 
 const profile = {
-  name: "Boris Prilyan Sidabutar",
+  name: "Boris Prilyan",
   title: "Quantity Surveyor / Cost Estimator",
   location: "Jakarta, Indonesia",
   email: "your.email@example.com",
