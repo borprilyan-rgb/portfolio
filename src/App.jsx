@@ -1,7 +1,7 @@
 import "./App.css";
 
 const profile = {
-  name: "Boris P. Sidabutar",
+  name: "Boris Sidabutar",
   title: "Quantity Surveyor Specialist CSA",
   location: "Kelapa Gading, Jakarta Utara, Indonesia",
   email: "borisprilyan@gmail.com",
@@ -128,7 +128,9 @@ function App() {
   return (
     <div className="page">
       <header className="nav">
-        <a href="#home" className="brand">BP</a>
+        <a href="#home" className="brand" aria-label="Home">
+          <img src="/profile.jpg" alt="Boris Prilyan" />
+        </a>
         <nav>
           <a href="#experience">Experience</a>
           <a href="#skills">Skills</a>
