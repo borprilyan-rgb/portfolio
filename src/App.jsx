@@ -290,7 +290,13 @@ function App() {
           <p>{profile.title} / {profile.location}</p>
           <div className="footerContact">
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
-            <a href={`tel:${profile.phone.replaceAll(" ", "")}`}>{profile.phone}</a>
+            <a
+              href={`https://wa.me/${profile.phone.replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp: {profile.phone}
+            </a>
           </div>
           <nav aria-label="Footer navigation">
             <a href="#work">Work</a>
