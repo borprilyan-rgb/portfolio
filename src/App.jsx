@@ -274,6 +274,10 @@ function WorkRows({ items }) {
 /* ── HOME ── */
 
 function HomePage() {
+  useEffect(() => {
+    document.title = "Boris | Home";
+  }, []);
+
   return (
     <main className="pageContent">
       {/* Hero */}
@@ -299,7 +303,7 @@ function HomePage() {
             </div>
           </div>
           <div className="ctaRow">
-            <Link className="btnFill" to="/work">View Work</Link>
+            <Link className="btnFill" to="/work">View My Project</Link>
             <a
               href="/Boris-Sidabutar-CV.pdf"
               target="_blank"
@@ -321,13 +325,13 @@ function HomePage() {
       </section>
 
       {/* Selected work preview */}
-      <DividerBar title="Selected Work" count={`0${works.length} Projects`} />
+      <DividerBar title="My Selected Work" count={`0${works.length} Projects`} />
       <section className="section">
         <div className="sectionInner">
           <SectionHeading label="Projects" title="Project-focused QS workflows" />
           <WorkRows items={works.slice(0, 3)} />
           <div className="ctaRow" style={{ marginTop: "48px" }}>
-            <Link className="btnGhost" to="/work">View All Work</Link>
+            <Link className="btnGhost" to="/work">View All My Project</Link>
           </div>
         </div>
       </section>
@@ -338,13 +342,17 @@ function HomePage() {
 /* ── WORK LIST PAGE ── */
 
 function WorkPage() {
+  useEffect(() => {
+    document.title = "Boris | My Project";
+  }, []);
+
   return (
     <main className="pageContent">
       <section className="pageHero">
         <GridBg />
         <div className="pageHeroInner">
-          <Eyebrow>Selected Work</Eyebrow>
-          <h1>Work</h1>
+          <Eyebrow>My Selected Work</Eyebrow>
+          <h1>My Project</h1>
           <p className="pageIntro">
             A focused index of QS workflows for feasibility estimation, BOQ/RAB
             structure, cost-basis reconciliation, and design-change review.
@@ -367,12 +375,16 @@ function WorkDetailPage() {
   const { slug } = useParams();
   const work = works.find((item) => item.slug === slug);
 
+  useEffect(() => {
+    document.title = "Boris | My Project";
+  }, []);
+
   if (!work) return <NotFoundPage />;
 
   return (
     <main className="pageContent">
       <article className="detailPage">
-        <Link className="backLink" to="/work">← Back to Work</Link>
+        <Link className="backLink" to="/work">← Back to My Project</Link>
         <Eyebrow>{work.number}</Eyebrow>
         <h1>{work.title}</h1>
         <p className="pageIntro">{work.description}</p>
@@ -408,6 +420,10 @@ function WorkDetailPage() {
 /* ── EXPERIENCE ── */
 
 function ExperiencePage() {
+  useEffect(() => {
+    document.title = "Boris | Experience";
+  }, []);
+
   return (
     <main className="pageContent">
       <section className="pageHero">
@@ -456,6 +472,10 @@ function ExperiencePage() {
 /* ── TOOLS ── */
 
 function ToolsPage() {
+  useEffect(() => {
+    document.title = "Boris | Tools";
+  }, []);
+
   return (
     <main className="pageContent">
       <section className="pageHero">
@@ -518,6 +538,10 @@ function ToolsPage() {
 /* ── CONTACT ── */
 
 function ContactPage() {
+  useEffect(() => {
+    document.title = "Boris | Contact";
+  }, []);
+
   return (
     <main className="pageContent">
       <section className="contactHero pageHero">
@@ -583,7 +607,7 @@ function NotFoundPage() {
           <p className="pageIntro">The page you are looking for does not exist.</p>
           <div className="notFoundLinks">
             <Link className="btnFill" to="/">Return Home</Link>
-            <Link className="btnGhost" to="/work">View Work</Link>
+            <Link className="btnGhost" to="/work">View My Project</Link>
           </div>
         </div>
       </section>
@@ -622,7 +646,7 @@ function App() {
             Boris Sidabutar
           </Link>
           <nav aria-label="Primary navigation">
-            <NavLink to="/work">Work</NavLink>
+            <NavLink to="/work">My Project</NavLink>
             <NavLink to="/experience">Experience</NavLink>
             <NavLink to="/tools">Tools</NavLink>
             <NavLink to="/contact">Contact</NavLink>
