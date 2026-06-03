@@ -283,8 +283,10 @@ function HomePage() {
           <Eyebrow>Quantity Surveyor · Jakarta</Eyebrow>
           <h1>
             <span>Boris Sidabutar</span>
-            <span className="italic">Quantity Surveyor</span>
           </h1>
+          <h2>
+            <span className="italic">Quantity Surveyor</span>
+          </h2>
           <div className="heroRule">
             <p className="heroDesc">
               Quantity surveying portfolio focused on CSA quantity take-off, BOQ/RAB structure, 
