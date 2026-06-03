@@ -19,7 +19,7 @@ const works = [
     title: "Feasibility Estimation Workflow",
     description:
       "Area basis, GBA/GFA/SGFA/NFA summary, work-group cost planning, detailed cost pages, and Excel import/export workflow.",
-    tags: ["Python", "Streamlit", "Excel", "GBA", "GFA"],
+    tags: ["Python", "Streamlit", "Excel"],
     scope: [
       "Define area inputs and cost groups for early feasibility review.",
       "Separate GBA, GFA, SGFA, and NFA assumptions before cost allocation.",
@@ -36,7 +36,7 @@ const works = [
     title: "BOQ / RAB Structure",
     description:
       "Quantity take-off and BOQ structure for Civil, Structural, and Architectural works with clear measurement basis.",
-    tags: ["QS", "BOQ", "RAB", "CSA"],
+    tags: ["QS", "BOQ", "RAB"],
     scope: [
       "Structure work items for Civil, Structural, and Architectural packages.",
       "Maintain clear unit, quantity, and measurement basis for each BOQ line.",
@@ -53,7 +53,7 @@ const works = [
     title: "Cost Basis Reconciliation",
     description:
       "Separating GBA, GFA, SGFA, NFA, rooms, detailed quantity, area, and lump sum to avoid mixed-basis cost calculations.",
-    tags: ["Cost Plan", "Feasibility", "Reconciliation"],
+    tags: ["Cost Plan", "Feasibility"],
     scope: [
       "Identify which cost items are area-based, quantity-based, room-based, or lump sum.",
       "Separate mixed calculation bases before cost summaries are reviewed.",
@@ -70,7 +70,7 @@ const works = [
     title: "Drawing & Design Change Review",
     description:
       "Reviewing drawings, specifications, and design revisions to identify quantity changes and cost impact.",
-    tags: ["Drawing Review", "Cost Impact", "Coordination"],
+    tags: ["Drawing Review", "Cost Impact"],
     scope: [
       "Review drawing revisions and specification updates for QS impact.",
       "Identify quantity changes across CSA work items.",
@@ -172,6 +172,33 @@ const certifications = [
   { title: "Lean Six Sigma", meta: "Universitas Indonesia", period: "2021" },
 ];
 
+/* ── ICONS ── */
+
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    </svg>
+  );
+}
+
+function GitHubIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </svg>
+  );
+}
+
+function EmailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect width="20" height="16" x="2" y="4" rx="2"/>
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  );
+}
+
 /* ── UTILS ── */
 
 function ScrollToTop() {
@@ -207,7 +234,6 @@ function SectionHeading({ label, title }) {
     <div className="sectionHeading">
       <Eyebrow>{label}</Eyebrow>
       <h2>{title}</h2>
-      <div className="sectionHeadingRule" />
     </div>
   );
 }
@@ -254,26 +280,33 @@ function HomePage() {
       <section className="hero">
         <GridBg />
         <div className="heroInner">
-          <Eyebrow>Quantity Surveyor Portfolio · Jakarta</Eyebrow>
+          <Eyebrow>Quantity Surveyor · Jakarta</Eyebrow>
           <h1>
             <span>Boris Sidabutar</span>
-            <span className="italic">QS Cost & Feasibility</span>
+            <span className="italic">Cost & Feasibility</span>
           </h1>
           <div className="heroRule">
             <p className="heroDesc">
-              Quantity surveying portfolio focused on CSA quantity take-off,
-              BOQ/RAB structure, feasibility cost estimation, and cost-basis
-              reconciliation for property development projects.
+              Quantity surveying portfolio focused on CSA quantity take-off, BOQ/RAB structure, 
+              feasibility cost estimation, and cost-basis reconciliation for property development projects.
             </p>
             <div className="heroMetaCol">
-              <span>{profile.title}</span>
-              <span>Property Development</span>
-              <span>{profile.location}</span>
+              <span data-label="Role">{profile.title}</span>
+              <span data-label="Focus">Property Development</span>
+              <span data-label="Location">{profile.location}</span>
             </div>
           </div>
           <div className="ctaRow">
-            <Link className="btnFill" to="/work">View Work →</Link>
-            <Link className="btnGhost" to="/experience">Experience</Link>
+            <Link className="btnFill" to="/work">View Work</Link>
+            <Link className="btnGhost" to="/contact">Get in Touch</Link>
+          </div>
+          <div className="socialLinks">
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <LinkedInIcon />
+            </a>
+            <a href={`mailto:${profile.email}`} aria-label="Email">
+              <EmailIcon />
+            </a>
           </div>
         </div>
       </section>
@@ -282,8 +315,11 @@ function HomePage() {
       <DividerBar title="Selected Work" count={`0${works.length} Projects`} />
       <section className="section">
         <div className="sectionInner">
-          <SectionHeading label="Selected Work" title="Project-focused QS workflows" />
+          <SectionHeading label="Projects" title="Project-focused QS workflows" />
           <WorkRows items={works.slice(0, 3)} />
+          <div className="ctaRow" style={{ marginTop: "48px" }}>
+            <Link className="btnGhost" to="/work">View All Work</Link>
+          </div>
         </div>
       </section>
     </main>
@@ -299,7 +335,7 @@ function WorkPage() {
         <GridBg />
         <div className="pageHeroInner">
           <Eyebrow>Selected Work</Eyebrow>
-          <h1>Selected Work</h1>
+          <h1>Work</h1>
           <p className="pageIntro">
             A focused index of QS workflows for feasibility estimation, BOQ/RAB
             structure, cost-basis reconciliation, and design-change review.
@@ -308,7 +344,7 @@ function WorkPage() {
       </section>
       <section className="section">
         <div className="sectionInner">
-          <SectionHeading label="Index" title="QS workflow case studies" />
+          <SectionHeading label="All Projects" title="QS workflow case studies" />
           <WorkRows items={works} />
         </div>
       </section>
@@ -369,7 +405,7 @@ function ExperiencePage() {
         <GridBg />
         <div className="pageHeroInner">
           <Eyebrow>Experience</Eyebrow>
-          <h1>Professional Background</h1>
+          <h1>Background</h1>
           <p className="pageIntro">
             Quantity surveying, cost estimation, BOQ review, procurement
             coordination, and design-change cost analysis across property
@@ -379,7 +415,7 @@ function ExperiencePage() {
       </section>
       <section className="section">
         <div className="sectionInner">
-          <SectionHeading label="Timeline" title="Experience" />
+          <SectionHeading label="Career" title="Professional Experience" />
           <div className="timeline">
             {experience.map((job) => (
               <article
@@ -427,7 +463,7 @@ function ToolsPage() {
 
       <section className="section">
         <div className="sectionInner">
-          <SectionHeading label="Capability" title="Built for cost clarity" />
+          <SectionHeading label="Skills" title="Capabilities & Software" />
           <div className="capabilityGrid">
             <div>
               <p className="capabilityColTitle">Capabilities</p>
@@ -479,7 +515,7 @@ function ContactPage() {
         <GridBg />
         <div className="pageHeroInner">
           <Eyebrow>Open for collaboration</Eyebrow>
-          <h1>Boris Sidabutar</h1>
+          <h1>{"Let's Connect"}</h1>
           <p className="pageIntro">
             {profile.title} · {profile.location}
           </p>
@@ -554,7 +590,7 @@ function SiteFooter() {
       <div className="footerInner">
         <span className="footerMark">Boris Sidabutar</span>
         <span className="footerCopyright">
-          Copyright 2026 · All rights reserved
+          © 2026 · All rights reserved
         </span>
       </div>
     </footer>
@@ -564,7 +600,7 @@ function SiteFooter() {
 /* ── APP ROOT ── */
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const isDark = theme === "dark";
 
   return (
