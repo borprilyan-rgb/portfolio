@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FiMoon, FiSun } from "react-icons/fi";
 import { Link, NavLink, Route, Routes, useLocation, useParams } from "react-router-dom";
 import "./App.css";
 
@@ -654,11 +655,11 @@ function App() {
           <button
             className="themeToggle"
             type="button"
-            aria-label="Toggle color theme"
+            aria-label={`Current theme: ${theme}`}
             aria-pressed={isDark}
             onClick={() => setTheme(isDark ? "light" : "dark")}
           >
-            <span />
+            {isDark ? <FiMoon aria-hidden="true" /> : <FiSun aria-hidden="true" />}
           </button>
         </div>
       </header>
