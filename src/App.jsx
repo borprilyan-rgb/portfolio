@@ -212,6 +212,16 @@ function SectionHeading({ label, title }) {
   );
 }
 
+function DetailList({ items }) {
+  return (
+    <ul className="detailList">
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
 /* ── WORK ROWS ── */
 
 function WorkRows({ items }) {
@@ -246,24 +256,24 @@ function HomePage() {
         <div className="heroInner">
           <Eyebrow>Quantity Surveyor Portfolio · Jakarta</Eyebrow>
           <h1>
-            <span>Boris</span>
-            <span className="italic">Sidabutar</span>
+            <span>Boris Sidabutar</span>
+            <span className="italic">QS Cost & Feasibility</span>
           </h1>
           <div className="heroRule">
             <p className="heroDesc">
-              Civil, Structural, and Architectural quantity take-off, BOQ
-              preparation, feasibility cost estimation, and cost-basis
+              Quantity surveying portfolio focused on CSA quantity take-off,
+              BOQ/RAB structure, feasibility cost estimation, and cost-basis
               reconciliation for property development projects.
             </p>
             <div className="heroMetaCol">
               <span>{profile.title}</span>
-              <span>Agung Sedayu · 2025</span>
+              <span>Property Development</span>
               <span>{profile.location}</span>
             </div>
           </div>
           <div className="ctaRow">
             <Link className="btnFill" to="/work">View Work →</Link>
-            <Link className="btnGhost" to="/contact">Contact</Link>
+            <Link className="btnGhost" to="/experience">Experience</Link>
           </div>
         </div>
       </section>
@@ -272,7 +282,7 @@ function HomePage() {
       <DividerBar title="Selected Work" count={`0${works.length} Projects`} />
       <section className="section">
         <div className="sectionInner">
-          <SectionHeading label="Index" title="Project-focused QS workflows" />
+          <SectionHeading label="Selected Work" title="Project-focused QS workflows" />
           <WorkRows items={works.slice(0, 3)} />
         </div>
       </section>
@@ -289,7 +299,7 @@ function WorkPage() {
         <GridBg />
         <div className="pageHeroInner">
           <Eyebrow>Selected Work</Eyebrow>
-          <h1>Work</h1>
+          <h1>Selected Work</h1>
           <p className="pageIntro">
             A focused index of QS workflows for feasibility estimation, BOQ/RAB
             structure, cost-basis reconciliation, and design-change review.
@@ -298,7 +308,7 @@ function WorkPage() {
       </section>
       <section className="section">
         <div className="sectionInner">
-          <SectionHeading label="Index" title="Selected workflows" />
+          <SectionHeading label="Index" title="QS workflow case studies" />
           <WorkRows items={works} />
         </div>
       </section>
@@ -334,33 +344,7 @@ function WorkDetailPage() {
           </section>
           <section>
             <Eyebrow>Scope</Eyebrow>
-            <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: "8px" }}>
-              {work.scope.map((item) => (
-                <li
-                  key={item}
-                  style={{
-                    fontSize: "12px",
-                    color: "var(--muted)",
-                    fontWeight: 300,
-                    lineHeight: 1.6,
-                    paddingLeft: "16px",
-                    position: "relative",
-                  }}
-                >
-                  <span
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      color: "var(--accent)",
-                      fontSize: "10px",
-                    }}
-                  >
-                    —
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <DetailList items={work.scope} />
           </section>
           <section>
             <Eyebrow>Method</Eyebrow>
@@ -496,7 +480,7 @@ function ContactPage() {
         <div className="pageHeroInner">
           <Eyebrow>Open for collaboration</Eyebrow>
           <h1>Boris Sidabutar</h1>
-          <p className="pageIntro" style={{ marginTop: "8px" }}>
+          <p className="pageIntro">
             {profile.title} · {profile.location}
           </p>
           <div className="contactLinks">
@@ -590,7 +574,7 @@ function App() {
       <header className="nav">
         <div className="navInner">
           <Link to="/" className="brand" aria-label="Home">
-            Boris
+            Boris Sidabutar
           </Link>
           <nav aria-label="Primary navigation">
             <NavLink to="/work">Work</NavLink>
