@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { Link, NavLink, Route, Routes, useLocation, useParams } from "react-router-dom";
 import "./App.css";
@@ -314,14 +315,6 @@ function HomePage() {
               Curriculum Vitae
             </a>
           </div>
-          <div className="socialLinks">
-            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              <LinkedInIcon />
-            </a>
-            <a href={`mailto:${profile.email}`} aria-label="Email">
-              <EmailIcon />
-            </a>
-          </div>
         </div>
       </section>
 
@@ -362,7 +355,7 @@ function WorkPage() {
       </section>
       <section className="section">
         <div className="sectionInner">
-          <SectionHeading label="All Projects" title="QS workflow case studies" />
+          <SectionHeading label="All Projects" title="Case Studies" />
           <WorkRows items={works} />
         </div>
       </section>
@@ -622,7 +615,29 @@ function SiteFooter() {
   return (
     <footer className="siteFooter">
       <div className="footerInner">
-        <span className="footerMark">Boris Sidabutar</span>
+        <div className="footerBrandRow">
+          <span className="footerMark">Boris Prilyan Sidabutar</span>
+
+          <span className="footerDivider" aria-hidden="true">|</span>
+
+          <div className="footerSocialLinks socialLinks">
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <LinkedInIcon />
+            </a>
+            <a href={`mailto:${profile.email}`} aria-label="Email">
+              <EmailIcon />
+            </a>
+            <a
+              href={`https://wa.me/${profile.phone.replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="WhatsApp"
+            >
+              <FaWhatsapp />
+            </a>
+          </div>
+        </div>
+
         <span className="footerCopyright">
           © 2026 · All rights reserved
         </span>

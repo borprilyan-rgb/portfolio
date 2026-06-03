@@ -868,6 +868,10 @@ p {
   margin-top: 32px;
 }
 
+.footerSocialLinks {
+  margin-top: 0;
+}
+
 .socialLinks a {
   color: var(--muted);
   transition: color 200ms ease;
@@ -880,6 +884,34 @@ p {
 .socialLinks svg {
   width: 20px;
   height: 20px;
+}
+
+.footerBrandRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footerDivider {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.footerSocialLinks {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footerSocialLinks a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerSocialLinks svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* RESPONSIVE */
