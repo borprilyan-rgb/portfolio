@@ -514,7 +514,7 @@ function ContactPage() {
             >
               <div>
                 <p className="contactLinkLabel">LinkedIn</p>
-                <p className="contactLinkValue">linkedin.com/in/borissidabutar</p>
+                <p className="contactLinkValue">{profile.fullName}</p>
               </div>
               <span className="contactLinkArrow">→</span>
             </a>
