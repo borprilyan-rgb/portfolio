@@ -300,9 +300,13 @@ function HomePage() {
           </div>
           <div className="ctaRow">
             <Link className="btnFill" to="/work">View Work</Link>
-            <Link className="btnGhost" to="/contact">Get in Touch</Link>
-            <a className="btnGhost" href="/Boris-Sidabutar-CV.pdf" download>
-              Download CV
+            <a
+              href="/Boris-Sidabutar-CV.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="btnGhost"
+            >
+              Curriculum Vitae
             </a>
           </div>
           <div className="socialLinks">
