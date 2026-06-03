@@ -617,27 +617,7 @@ function SiteFooter() {
       <div className="footerInner">
         <div className="footerBrandRow">
           <span className="footerMark">Boris Prilyan Sidabutar</span>
-
-          <span className="footerDivider" aria-hidden="true">|</span>
-
-          <div className="footerSocialLinks socialLinks">
-            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              <LinkedInIcon />
-            </a>
-            <a href={`mailto:${profile.email}`} aria-label="Email">
-              <EmailIcon />
-            </a>
-            <a
-              href={`https://wa.me/${profile.phone.replace(/\D/g, "")}`}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="WhatsApp"
-            >
-              <FaWhatsapp />
-            </a>
-          </div>
         </div>
-
         <span className="footerCopyright">
           © 2026 · All rights reserved
         </span>
