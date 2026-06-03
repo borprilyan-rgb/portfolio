@@ -642,7 +642,7 @@ function App() {
             Boris Sidabutar
           </Link>
           <nav aria-label="Primary navigation">
-            <NavLink to="/work">My Project</NavLink>
+            <NavLink to="/work">Projects</NavLink>
             <NavLink to="/experience">Experience</NavLink>
             <NavLink to="/tools">Tools</NavLink>
             <NavLink to="/contact">Contact</NavLink>
