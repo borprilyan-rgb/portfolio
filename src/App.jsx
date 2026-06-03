@@ -283,7 +283,7 @@ function HomePage() {
           <Eyebrow>Quantity Surveyor · Jakarta</Eyebrow>
           <h1>
             <span>Boris Sidabutar</span>
-            <span className="italic">Cost & Feasibility</span>
+            <span className="italic">Quantity Surveyor</span>
           </h1>
           <div className="heroRule">
             <p className="heroDesc">

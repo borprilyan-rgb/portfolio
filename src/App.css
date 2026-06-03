@@ -36,7 +36,7 @@
   --radius-md: 12px;
   --radius-lg: 20px;
 
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-serif: "Inter", -apple-system, Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -233,7 +233,7 @@ h1 .italic {
   display: inline;
   font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 100;
 }
 
 h1 span {
