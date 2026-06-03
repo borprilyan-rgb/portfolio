@@ -301,6 +301,9 @@ function HomePage() {
           <div className="ctaRow">
             <Link className="btnFill" to="/work">View Work</Link>
             <Link className="btnGhost" to="/contact">Get in Touch</Link>
+            <a className="btnGhost" href="/Boris-Sidabutar-CV.pdf" download>
+              Download CV
+            </a>
           </div>
           <div className="socialLinks">
             <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
