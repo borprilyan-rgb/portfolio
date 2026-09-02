@@ -5,9 +5,9 @@ import { Link, NavLink, Route, Routes, useLocation, useParams } from "react-rout
 import "./App.css";
 
 const profile = {
-  name: "Boris Sidabutar",
+  name: "Boris",
   fullName: "Boris Prilyan Sidabutar",
-  title: "Quantity Surveyor Specialist Civil & Architecture",
+  title: "Quantity Surveyor",
   location: "Jakarta, Indonesia",
   email: "borisprilyan@gmail.com",
   phone: "+62 881 1623 122",
