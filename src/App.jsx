@@ -7,7 +7,7 @@ import "./App.css";
 const profile = {
   name: "Boris Sidabutar",
   fullName: "Boris Prilyan Sidabutar",
-  title: "Quantity Surveyor Specialist CSA",
+  title: "Quantity Surveyor Specialist Civil & Architecture",
   location: "Jakarta, Indonesia",
   email: "borisprilyan@gmail.com",
   phone: "+62 881 1623 122",
